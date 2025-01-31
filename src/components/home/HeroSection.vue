@@ -26,7 +26,7 @@
             </h1>
           </div>
 
-          <div class="text-neutral-500 dark:text-neutral-400 max-w-xl">
+          <div class="text-2xl md:text-3xl text-neutral-500 dark:text-neutral-400 max-w-xl">
             Мы разрабатываем современные веб-сайты и приложения, которые помогают бизнесу расти в
             цифровом пространстве.
           </div>

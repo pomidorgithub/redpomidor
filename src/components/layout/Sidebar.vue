@@ -8,14 +8,23 @@
       <div class="flex justify-between items-center max-w-7xl mx-auto">
         <div class="flex items-center gap-2">
           <LogoIcon class="w-6 h-6" />
-          <span class="text-sm tracking-[0.2em] text-white">[ REDPOMIDOR ]</span>
+          <span class="text-sm tracking-[0.2em] text-white">REDPOMIDOR</span>
         </div>
-        <button
-          class="text-sm tracking-[0.2em] text-white hover:text-zinc-300 transition-colors duration-300"
-          @click="$emit('close')"
-        >
-          [ CLOSE ]
-        </button>
+        <div class="flex items-center gap-6">
+          <button
+            class="text-sm tracking-[0.2em] text-white hover:text-zinc-300 transition-colors duration-300"
+            @click="toggleTheme"
+          >
+            {{ isDark ? 'LIGHT' : 'DARK' }}
+          </button>
+          <button
+            @click="$emit('close')"
+            class="flex flex-col gap-2 text-sm tracking-[0.2em] hover:text-[#FF3B30] transition-colors"
+          >
+            <div class="w-6 h-[1px] bg-current"></div>
+            <div class="w-6 h-[1px] bg-current"></div>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -30,25 +39,32 @@
           HOME
         </router-link>
         <router-link
-          to="/about"
-          class="hover:text-zinc-300 transition-colors duration-300"
+          to="/cases"
+          class="text-5xl font-light tracking-wider hover:text-[#FF3B30] transition-colors"
           @click="$emit('close')"
         >
-          ABOUT
+          КЕЙСЫ
         </router-link>
         <router-link
-          to="/work"
-          class="hover:text-zinc-300 transition-colors duration-300"
+          to="/services"
+          class="text-5xl font-light tracking-wider hover:text-[#FF3B30] transition-colors"
           @click="$emit('close')"
         >
-          WORK
+          УСЛУГИ
+        </router-link>
+        <router-link
+          to="/about"
+          class="text-5xl font-light tracking-wider hover:text-[#FF3B30] transition-colors"
+          @click="$emit('close')"
+        >
+          О НАС
         </router-link>
         <router-link
           to="/contact"
-          class="hover:text-zinc-300 transition-colors duration-300"
+          class="text-5xl font-light tracking-wider hover:text-[#FF3B30] transition-colors"
           @click="$emit('close')"
         >
-          CONTACT
+          КОНТАКТЫ
         </router-link>
       </nav>
     </div>
@@ -56,14 +72,20 @@
 </template>
 
 <script setup>
-import LogoIcon from '@/components/icons/LogoIcon.vue'
+import { computed } from 'vue'
+import { useThemeStore } from '../../stores/theme'
+import LogoIcon from '../icons/LogoIcon.vue'
 
 defineProps({
   isOpen: {
     type: Boolean,
-    default: false
+    required: true
   }
 })
+
+const themeStore = useThemeStore()
+const isDark = computed(() => themeStore.isDark)
+const toggleTheme = () => themeStore.toggleTheme()
 
 defineEmits(['close'])
 </script>

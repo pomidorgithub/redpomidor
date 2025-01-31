@@ -5,14 +5,14 @@
         <!-- Logo and copyright -->
         <div class="flex items-center gap-2">
           <LogoIcon class="w-6 h-6" />
-          <span class="text-sm tracking-[0.2em]">[ REDPOMIDOR ]</span>
+          <span class="text-sm tracking-[0.2em]">REDPOMIDOR</span>
         </div>
 
         <!-- Links -->
         <nav class="flex items-center gap-8">
-          <a href="#" class="text-sm tracking-[0.2em] link-hover">[ INSTAGRAM ]</a>
-          <a href="#" class="text-sm tracking-[0.2em] link-hover">[ BEHANCE ]</a>
-          <a href="#" class="text-sm tracking-[0.2em] link-hover">[ GITHUB ]</a>
+          <a href="#" class="text-sm tracking-[0.2em] link-hover">INSTAGRAM</a>
+          <a href="#" class="text-sm tracking-[0.2em] link-hover">BEHANCE</a>
+          <a href="#" class="text-sm tracking-[0.2em] link-hover">GITHUB</a>
         </nav>
 
         <!-- Copyright -->
