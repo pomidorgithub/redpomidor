@@ -1,5 +1,5 @@
 <template>
-  <section class="h-[calc(100vh-72px)] bg-neutral-50 dark:bg-neutral-950">
+  <section class="h-[calc(100vh-72px)] bg-white dark:bg-black">
     <div class="h-full">
       <!-- Фоновая сетка -->
       <div class="absolute inset-0 grid grid-cols-2 md:grid-cols-4">
@@ -13,7 +13,7 @@
       <div class="h-full">
         <div class="h-full">
           <!-- Основная колонка -->
-          <div class="h-full pl-7 pr-12 md:px-16 pt-12 md:pt-16 pb-12 md:pb-16 flex flex-col">
+          <div class="h-full px-8 pt-12 md:pt-16 pb-12 md:pb-16 flex flex-col">
             <div class="flex-1 flex flex-col justify-center max-w-5xl">
               <div class="space-y-16">
                 <div class="text-sm tracking-[0.2em] text-neutral-400">DIGITAL AGENCY</div>
