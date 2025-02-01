@@ -1,112 +1,69 @@
 <template>
-  <section
-    class="min-h-[calc(100vh-72px)] flex items-center justify-center w-full relative bg-neutral-50 dark:bg-neutral-950"
-    :class="{ 'is-dark': isDark }"
-  >
-    <div class="w-full px-8 relative z-10">
-      <div
-        class="max-w-[90rem] mx-auto grid grid-cols-1 md:grid-cols-[1fr,auto] items-center gap-16"
-      >
-        <!-- Основной контент -->
-        <div
-          class="max-w-4xl space-y-8"
-          v-motion
-          :initial="{ opacity: 0, y: 100 }"
-          :enter="{ opacity: 1, y: 0 }"
-          :delay="200"
-        >
-          <div class="space-y-4">
-            <div class="text-sm tracking-[0.2em] text-neutral-500 dark:text-neutral-400">
-              [ ВЕБ-СТУДИЯ ]
-            </div>
-            <h1 class="text-4xl md:text-7xl font-light">
-              СОЗДАЁМ<br />
-              ЦИФРОВЫЕ<br />
-              ПРОДУКТЫ
-            </h1>
-          </div>
-
-          <div class="text-2xl md:text-3xl text-neutral-500 dark:text-neutral-400 max-w-xl">
-            Мы разрабатываем современные веб-сайты и приложения, которые помогают бизнесу расти в
-            цифровом пространстве.
-          </div>
-
-          <!-- Статистика -->
-          <div
-            class="grid grid-cols-3 gap-8 py-8 border-y border-neutral-200 dark:border-neutral-800"
+  <section class="min-h-[calc(100vh-72px)] bg-neutral-50 dark:bg-neutral-950">
+    <div class="h-full w-full">
+      <!-- Основной контент -->
+      <div class="px-8 pt-32">
+        <div class="max-w-[120rem] mx-auto">
+          <!-- Заголовок -->
+          <div class="space-y-16"
+            v-motion
+            :initial="{ opacity: 0 }"
+            :enter="{ opacity: 1 }"
           >
-            <div class="space-y-2">
-              <div
-                class="text-3xl font-light"
-                v-motion
-                :initial="{ opacity: 0 }"
-                :enter="{ opacity: 1 }"
-                :delay="600"
-              >
-                50+
-              </div>
-              <div class="text-sm tracking-[0.2em] text-neutral-500 dark:text-neutral-400">
-                [ ПРОЕКТОВ ]
-              </div>
+            <div class="relative">
+              <h1 class="text-[43px] leading-[0.9] tracking-[-0.02em]">
+                СОЗДАЁМ<br />
+                ЦИФРОВЫЕ<br />
+                ПРОДУКТЫ
+              </h1>
             </div>
-            <div class="space-y-2">
-              <div
-                class="text-3xl font-light"
-                v-motion
-                :initial="{ opacity: 0 }"
-                :enter="{ opacity: 1 }"
-                :delay="800"
-              >
-                98%
-              </div>
-              <div class="text-sm tracking-[0.2em] text-neutral-500 dark:text-neutral-400">
-                [ КЛИЕНТОВ ]
-              </div>
-            </div>
-            <div class="space-y-2">
-              <div
-                class="text-3xl font-light"
-                v-motion
-                :initial="{ opacity: 0 }"
-                :enter="{ opacity: 1 }"
-                :delay="1000"
-              >
-                15+
-              </div>
-              <div class="text-sm tracking-[0.2em] text-neutral-500 dark:text-neutral-400">
-                [ ЛЕТ ]
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+              <div class="text-lg md:text-xl text-neutral-600 dark:text-neutral-300">
+                Мы разрабатываем современные веб-сайты и приложения, которые помогают бизнесу расти в цифровом пространстве.
               </div>
             </div>
           </div>
 
-          <button
-            @click="scrollToProjects"
-            class="border border-current px-8 py-3 text-sm tracking-[0.2em] hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors"
+          <!-- Статистика и кнопка -->
+          <div class="mt-24 flex flex-col md:flex-row md:justify-between md:items-end gap-16"
+            v-motion
+            :initial="{ opacity: 0, y: 40 }"
+            :enter="{ opacity: 1, y: 0 }"
+            :delay="200"
           >
-            [ СМОТРЕТЬ РАБОТЫ ]
-          </button>
-        </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-12 md:gap-24">
+              <div>
+                <div class="text-4xl md:text-5xl mb-3">50+</div>
+                <div class="text-sm tracking-[0.2em] text-neutral-500">ПРОЕКТОВ</div>
+              </div>
+              <div>
+                <div class="text-4xl md:text-5xl mb-3">98%</div>
+                <div class="text-sm tracking-[0.2em] text-neutral-500">КЛИЕНТОВ</div>
+              </div>
+              <div>
+                <div class="text-4xl md:text-5xl mb-3">15+</div>
+                <div class="text-sm tracking-[0.2em] text-neutral-500">ЛЕТ</div>
+              </div>
+            </div>
 
-        <!-- Декоративный элемент справа -->
-        <div
-          class="hidden md:flex flex-col items-end space-y-8 text-sm tracking-[0.2em]"
-          v-motion
-          :initial="{ opacity: 0, x: 50 }"
-          :enter="{ opacity: 1, x: 0 }"
-          :delay="400"
-        >
-          <div class="text-neutral-400 dark:text-neutral-600 text-right">[ EST. 2024 ]</div>
-          <div class="h-32 w-[1px] bg-neutral-200 dark:bg-neutral-800"></div>
-          <div class="text-neutral-400 dark:text-neutral-600 text-right">
-            [ САЙТЫ ]<br />
-            [ ПРИЛОЖЕНИЯ ]<br />
-            [ E-COMMERCE ]
-          </div>
-          <div class="h-32 w-[1px] bg-neutral-200 dark:bg-neutral-800"></div>
-          <div class="text-neutral-400 dark:text-neutral-600 text-right">
-            [ REACT ]<br />
-            [ VUE ]<br />
-            [ NODE ]
+            <button
+              @click="scrollToProjects"
+              class="group relative inline-flex items-center gap-6 text-sm tracking-[0.2em] hover:text-neutral-500 transition-colors"
+            >
+              <span class="relative z-10">СМОТРЕТЬ РАБОТЫ</span>
+              <div class="relative w-10 h-10 rounded-full border border-current group-hover:bg-black group-hover:border-black dark:group-hover:bg-white dark:group-hover:border-white transition-colors">
+                <svg 
+                  class="absolute inset-0 m-auto w-5 h-5 group-hover:text-white dark:group-hover:text-black transition-colors"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path d="M17 7L7 17M17 7H7M17 7V17" />
+                </svg>
+              </div>
+            </button>
           </div>
         </div>
       </div>
