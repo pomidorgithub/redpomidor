@@ -6,20 +6,38 @@
     >
       <div class="w-full h-full px-8">
         <div class="flex items-center justify-between h-full">
-          <!-- Menu button -->
-          <button
-            @click="toggleSidebar"
-            class="flex flex-col gap-2 text-sm tracking-[0.2em] transition-colors group"
-          >
-            <div
-              class="w-6 h-[1px] bg-current transform transition-all duration-300"
-              :class="{ 'h-[2px] bg-[#FF3B30]': isScrolled }"
-            ></div>
-            <div
-              class="w-6 h-[1px] bg-current transform transition-all duration-300"
-              :class="{ 'h-[2px] bg-[#FF3B30]': isScrolled }"
-            ></div>
-          </button>
+          <div class="flex items-center gap-8">
+            <!-- Menu button -->
+            <button
+              @click="toggleSidebar"
+              class="flex flex-col gap-2 text-sm tracking-[0.2em] transition-colors group"
+            >
+              <div
+                class="w-6 h-[1px] bg-current transform transition-all duration-300"
+                :class="{ 'h-[2px] bg-[#FF3B30]': isScrolled }"
+              ></div>
+              <div
+                class="w-6 h-[1px] bg-current transform transition-all duration-300"
+                :class="{ 'h-[2px] bg-[#FF3B30]': isScrolled }"
+              ></div>
+            </button>
+
+            <!-- Navigation links -->
+            <nav class="flex gap-8">
+              <RouterLink
+                to="/cases"
+                class="text-sm tracking-[0.2em] link-hover"
+                :class="{ 'text-black': !isDark, 'text-white': isDark }"
+                >КЕЙСЫ</RouterLink
+              >
+              <RouterLink
+                to="/services"
+                class="text-sm tracking-[0.2em] link-hover"
+                :class="{ 'text-black': !isDark, 'text-white': isDark }"
+                >УСЛУГИ</RouterLink
+              >
+            </nav>
+          </div>
 
           <!-- Logo -->
           <RouterLink
@@ -31,8 +49,9 @@
           </RouterLink>
 
           <!-- Theme toggle -->
-          <button @click="toggleTheme" class="text-sm tracking-[0.2em] transition-colors">
-            {{ isDark ? 'LIGHT' : 'DARK' }}
+          <button @click="toggleTheme" class="transition-transform duration-300 hover:scale-110">
+            <SunIcon v-if="isDark" class="w-6 h-6" />
+            <MoonIcon v-else class="w-6 h-6" />
           </button>
         </div>
       </div>
@@ -44,6 +63,8 @@
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useThemeStore } from '../../stores/theme'
 import LogoIcon from '../icons/LogoIcon.vue'
+import SunIcon from '../icons/SunIcon.vue'
+import MoonIcon from '../icons/MoonIcon.vue'
 
 const themeStore = useThemeStore()
 const isDark = computed(() => themeStore.isDark)
@@ -74,6 +95,14 @@ const emit = defineEmits(['toggle-sidebar'])
 
 <style scoped>
 .link-hover {
-  @apply hover:text-neutral-500 dark:hover:text-neutral-400 transition-colors duration-300;
+  @apply relative;
+}
+
+.link-hover::after {
+  @apply content-[''] absolute left-0 bottom-[-4px] w-0 h-[1px] bg-[#FF3B30] transition-all duration-300;
+}
+
+.link-hover:hover::after {
+  @apply w-full;
 }
 </style>
