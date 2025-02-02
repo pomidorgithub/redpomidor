@@ -1,6 +1,6 @@
 <template>
-  <section class="h-[calc(100vh-72px)] bg-white dark:bg-black">
-    <div class="h-full">
+  <section class="h-[calc(100vh-72px)] bg-white dark:bg-black overflow-x-hidden">
+    <div class="h-full relative">
       <!-- Фоновая сетка -->
       <div class="absolute inset-0 grid grid-cols-2 md:grid-cols-4">
         <div></div>
@@ -13,25 +13,28 @@
       <div class="h-full">
         <div class="h-full">
           <!-- Основная колонка -->
-          <div class="h-full px-8 pt-12 md:pt-16 pb-12 md:pb-16 flex flex-col">
+          <div class="h-full px-8 pt-12 md:pt-16 pb-12 md:pb-16 flex flex-col overflow-x-hidden">
             <div class="flex-1 flex flex-col justify-center max-w-5xl">
-              <div class="space-y-16">
-                <div class="text-sm tracking-[0.2em] text-neutral-400">DIGITAL AGENCY</div>
-                
+              <div class="space-y-8">
                 <div class="space-y-8">
                   <h1 class="text-4xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight">
                     Мы создаем цифровые продукты, которые помогают бизнесу расти
                   </h1>
-                  
-                  <p class="text-lg text-neutral-500 dark:text-neutral-400 max-w-xl">
-                    Разрабатываем сайты и приложения с современным дизайном и продуманным пользовательским опытом
+
+                  <p class="text-xl text-neutral-500 dark:text-neutral-400 max-w-xl">
+                    Разрабатываем сайты и приложения с современным дизайном и продуманным
+                    пользовательским опытом
                   </p>
                 </div>
               </div>
             </div>
 
+            <div class="mt-auto md:mt-24">
+              <CompanyLogos />
+            </div>
+
             <!-- Статистика -->
-            <div class="border-t border-neutral-200 dark:border-neutral-800 py-8 md:py-12">
+            <div class="mt-16 border-t border-neutral-200 dark:border-neutral-800 py-8 md:py-12">
               <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0">
                 <div>
                   <div class="text-2xl md:text-3xl lg:text-4xl font-light tracking-tight">50+</div>
@@ -45,14 +48,18 @@
                   <div class="text-2xl md:text-3xl lg:text-4xl font-light tracking-tight">15+</div>
                   <div class="text-sm text-neutral-500">Лет опыта</div>
                 </div>
-                <div class="col-span-2 md:col-span-1 flex items-center justify-start md:justify-end pt-8 md:pt-0">
+                <div
+                  class="col-span-2 md:col-span-1 flex items-center justify-start md:justify-end pt-8 md:pt-0"
+                >
                   <button
                     @click="scrollToProjects"
                     class="group relative inline-flex items-center gap-6 text-sm tracking-[0.2em] hover:text-neutral-500 transition-colors"
                   >
                     <span class="relative z-10">СМОТРЕТЬ РАБОТЫ</span>
-                    <div class="relative w-10 h-10 rounded-full border border-current group-hover:bg-black group-hover:border-black dark:group-hover:bg-white dark:group-hover:border-white transition-colors">
-                      <svg 
+                    <div
+                      class="relative w-10 h-10 rounded-full border border-current group-hover:bg-black group-hover:border-black dark:group-hover:bg-white dark:group-hover:border-white transition-colors"
+                    >
+                      <svg
                         class="absolute inset-0 m-auto w-5 h-5 group-hover:text-white dark:group-hover:text-black transition-colors"
                         viewBox="0 0 24 24"
                         fill="none"
@@ -74,6 +81,8 @@
 </template>
 
 <script setup>
+import CompanyLogos from './CompanyLogos.vue'
+
 const scrollToProjects = () => {
   const projectsSection = document.getElementById('projects')
   if (projectsSection) {
@@ -82,6 +91,20 @@ const scrollToProjects = () => {
 }
 </script>
 
-<style>
+<style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap');
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+  transform: translateX(100vw);
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 </style>

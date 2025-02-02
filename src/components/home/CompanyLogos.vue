@@ -1,23 +1,71 @@
 <template>
-  <div class="w-full">
-    <div class="max-w-[90rem] mx-auto">
-      <div class="flex flex-wrap gap-12 items-center">
-        <img 
-          src="/logos/rosbank.svg" 
-          alt="Росбанк" 
-          class="h-4 w-auto opacity-40 hover:opacity-100 transition-opacity dark:invert" 
-        />
-        <img 
-          src="/logos/sovcombank.svg" 
-          alt="Совкомбанк" 
-          class="h-4 w-auto opacity-40 hover:opacity-100 transition-opacity dark:invert" 
-        />
-        <img 
-          src="/logos/tinkoff.svg" 
-          alt="Тинькофф" 
-          class="h-4 w-auto opacity-40 hover:opacity-100 transition-opacity dark:invert" 
-        />
-      </div>
+  <div class="flex whitespace-nowrap animate-marquee">
+    <div class="flex gap-16 items-center">
+      <span
+        class="text-lg md:text-xl font-medium opacity-50 hover:opacity-100 transition-opacity uppercase tracking-wider"
+        >Альмапарк</span
+      >
+      <span
+        class="text-lg md:text-xl font-medium opacity-50 hover:opacity-100 transition-opacity uppercase tracking-wider"
+        >Росбанк</span
+      >
+      <span
+        class="text-lg md:text-xl font-medium opacity-50 hover:opacity-100 transition-opacity uppercase tracking-wider"
+        >Альмапарк</span
+      >
+      <span
+        class="text-lg md:text-xl font-medium opacity-50 hover:opacity-100 transition-opacity uppercase tracking-wider"
+        >Росбанк</span
+      >
+      <span
+        class="text-lg md:text-xl font-medium opacity-50 hover:opacity-100 transition-opacity uppercase tracking-wider"
+        >Альмапарк</span
+      >
+      <span
+        class="text-lg md:text-xl font-medium opacity-50 hover:opacity-100 transition-opacity uppercase tracking-wider"
+        >Росбанк</span
+      >
+    </div>
+    <div class="flex gap-32 items-center">
+      <span
+        class="text-lg md:text-xl font-medium opacity-50 hover:opacity-100 transition-opacity uppercase tracking-wider"
+        >Альмапарк</span
+      >
+      <span
+        class="text-lg md:text-xl font-medium opacity-50 hover:opacity-100 transition-opacity uppercase tracking-wider"
+        >Росбанк</span
+      >
+      <span
+        class="text-lg md:text-xl font-medium opacity-50 hover:opacity-100 transition-opacity uppercase tracking-wider"
+        >Альмапарк</span
+      >
+      <span
+        class="text-lg md:text-xl font-medium opacity-50 hover:opacity-100 transition-opacity uppercase tracking-wider"
+        >Росбанк</span
+      >
+      <span
+        class="text-lg md:text-xl font-medium opacity-50 hover:opacity-100 transition-opacity uppercase tracking-wider"
+        >Альмапарк</span
+      >
+      <span
+        class="text-lg md:text-xl font-medium opacity-50 hover:opacity-100 transition-opacity uppercase tracking-wider"
+        >Росбанк</span
+      >
     </div>
   </div>
 </template>
+
+<style scoped>
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+</style>
