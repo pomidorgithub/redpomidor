@@ -17,8 +17,15 @@
             <div class="flex-1 flex flex-col justify-center max-w-5xl">
               <div class="space-y-8">
                 <div class="space-y-8">
-                  <h1 class="text-4xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight">
-                    Мы создаем цифровые продукты, которые помогают бизнесу расти
+                  <h1
+                    class="text-4xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight text-black dark:text-white"
+                  >
+                    Мы создаем
+                    <span class="relative text-[#FF3B30]"
+                      >цифровые
+                      <span class="absolute bottom-1 left-0 w-full h-[2px] bg-[#FF3B30]"></span>
+                    </span>
+                    продукты, которые помогают бизнесу расти
                   </h1>
 
                   <p class="text-xl text-neutral-500 dark:text-neutral-400 max-w-xl">
@@ -57,10 +64,10 @@
                   >
                     <span class="relative z-10">СМОТРЕТЬ РАБОТЫ</span>
                     <div
-                      class="relative w-10 h-10 rounded-full border border-current group-hover:bg-black group-hover:border-black dark:group-hover:bg-white dark:group-hover:border-white transition-colors"
+                      class="relative w-10 h-10 rounded-full border border-current group-hover:bg-[#FF3B30] group-hover:border-[#FF3B30] dark:group-hover:bg-[#FF3B30] dark:group-hover:border-[#FF3B30] transition-colors"
                     >
                       <svg
-                        class="absolute inset-0 m-auto w-5 h-5 group-hover:text-white dark:group-hover:text-black transition-colors"
+                        class="absolute inset-0 m-auto w-5 h-5 group-hover:text-white dark:group-hover:text-white transition-colors"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"

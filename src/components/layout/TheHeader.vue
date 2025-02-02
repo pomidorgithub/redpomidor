@@ -42,8 +42,8 @@
           <!-- Logo -->
           <RouterLink
             to="/"
-            class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300"
-            :class="{ 'scale-125': isScrolled }"
+            class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 hover:scale-110 logo-link"
+            :style="{ transform: `translate(-50%, -50%) rotate(${scrollRotation}deg)` }"
           >
             <LogoIcon class="w-8 h-8" />
           </RouterLink>
@@ -69,9 +69,11 @@ import MoonIcon from '../icons/MoonIcon.vue'
 const themeStore = useThemeStore()
 const isDark = computed(() => themeStore.isDark)
 const isScrolled = ref(false)
+const scrollRotation = ref(0)
 
 const checkScroll = () => {
   isScrolled.value = window.scrollY > 0
+  scrollRotation.value = window.scrollY * 0.1
 }
 
 onMounted(() => {
@@ -104,5 +106,28 @@ const emit = defineEmits(['toggle-sidebar'])
 
 .link-hover:hover::after {
   @apply w-full;
+}
+
+.logo-link {
+  transition: all 0.3s ease-in-out;
+}
+
+.logo-link:hover {
+  animation: logo-bounce 0.5s ease-in-out;
+}
+
+@keyframes logo-bounce {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) rotate(var(--rotation)) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(var(--rotation)) scale(1.2);
+  }
+}
+
+/* Добавляем CSS переменную для текущего угла поворота */
+.logo-link {
+  --rotation: 0deg;
 }
 </style>
