@@ -4,7 +4,7 @@
       class="bg-white dark:bg-black h-full transition-all duration-300"
       :class="{ 'bg-transparent': isScrolled }"
     >
-      <div class="w-full h-full px-8">
+      <div class="w-full h-full page-padding">
         <div class="flex items-center justify-between h-full">
           <div class="flex items-center gap-8">
             <!-- Menu button -->
